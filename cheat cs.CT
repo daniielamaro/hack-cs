@@ -4,7 +4,6 @@
     <CheatEntry>
       <ID>7</ID>
       <Description>"Munição Pointer"</Description>
-      <LastState Value="28" Activated="1" RealAddress="05C9DB5C"/>
       <ShowAsSigned>0</ShowAsSigned>
       <VariableType>4 Bytes</VariableType>
       <Address>hw.dll+7BBD9C</Address>
@@ -19,12 +18,27 @@
     <CheatEntry>
       <ID>9</ID>
       <Description>"Vida"</Description>
-      <LastState Value="999" Activated="1" RealAddress="0B69BC5C"/>
       <ShowAsSigned>0</ShowAsSigned>
       <VariableType>Float</VariableType>
       <Address>hw.dll+7BBD9C</Address>
       <Offsets>
         <Offset>1e0</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10</ID>
+      <Description>"Sem descrição"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>078A2C2C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>11</ID>
+      <Description>"Sem descrição"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>hw.dll+7BBD9C</Address>
+      <Offsets>
+        <Offset>23C</Offset>
       </Offsets>
     </CheatEntry>
   </CheatEntries>

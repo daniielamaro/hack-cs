@@ -6,6 +6,7 @@ namespace HackCS
     internal static class Program
     {
         public static bool VidaInfinita { get; set; }
+        public static bool ColeteInfinito { get; set; }
         public static bool MunicaoInfinita { get; set; }
 
         /// <summary>
@@ -15,9 +16,11 @@ namespace HackCS
         static void Main()
         {
             VidaInfinita = false;
+            MunicaoInfinita = false;
+            ColeteInfinito = false;
+
             Task.Run(() => Process());
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
@@ -30,6 +33,7 @@ namespace HackCS
                 Thread.Sleep(100);
                 if (VidaInfinita) await hack.VidaInfinita();
                 if (MunicaoInfinita) await hack.MunicaoInfinita();
+                if (ColeteInfinito) await hack.ColeteInfinito();
             }
         }
     }

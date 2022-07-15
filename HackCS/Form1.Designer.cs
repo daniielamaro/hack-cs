@@ -30,14 +30,16 @@
         {
             this.cbMunicaoInfinita = new System.Windows.Forms.CheckBox();
             this.cbVidaInfinita = new System.Windows.Forms.CheckBox();
+            this.cbColeteInfinito = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cbMunicaoInfinita
             // 
             this.cbMunicaoInfinita.AutoSize = true;
-            this.cbMunicaoInfinita.Location = new System.Drawing.Point(34, 26);
+            this.cbMunicaoInfinita.Location = new System.Drawing.Point(39, 35);
+            this.cbMunicaoInfinita.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbMunicaoInfinita.Name = "cbMunicaoInfinita";
-            this.cbMunicaoInfinita.Size = new System.Drawing.Size(113, 19);
+            this.cbMunicaoInfinita.Size = new System.Drawing.Size(138, 24);
             this.cbMunicaoInfinita.TabIndex = 0;
             this.cbMunicaoInfinita.Text = "Munição infinita";
             this.cbMunicaoInfinita.UseVisualStyleBackColor = true;
@@ -46,22 +48,37 @@
             // cbVidaInfinita
             // 
             this.cbVidaInfinita.AutoSize = true;
-            this.cbVidaInfinita.Location = new System.Drawing.Point(34, 68);
+            this.cbVidaInfinita.Location = new System.Drawing.Point(39, 91);
+            this.cbVidaInfinita.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cbVidaInfinita.Name = "cbVidaInfinita";
-            this.cbVidaInfinita.Size = new System.Drawing.Size(89, 19);
+            this.cbVidaInfinita.Size = new System.Drawing.Size(111, 24);
             this.cbVidaInfinita.TabIndex = 1;
             this.cbVidaInfinita.Text = "Vida infinita";
             this.cbVidaInfinita.UseVisualStyleBackColor = true;
             this.cbVidaInfinita.CheckedChanged += new System.EventHandler(this.CBVidaInfinitaCheckedChanged);
             // 
+            // cbColeteInfinito
+            // 
+            this.cbColeteInfinito.AutoSize = true;
+            this.cbColeteInfinito.Location = new System.Drawing.Point(39, 150);
+            this.cbColeteInfinito.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbColeteInfinito.Name = "cbColeteInfinito";
+            this.cbColeteInfinito.Size = new System.Drawing.Size(125, 24);
+            this.cbColeteInfinito.TabIndex = 2;
+            this.cbColeteInfinito.Text = "Colete Infinito";
+            this.cbColeteInfinito.UseVisualStyleBackColor = true;
+            this.cbColeteInfinito.CheckedChanged += new System.EventHandler(this.CBVColeteInfinitaCheckedChanged);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(214, 113);
+            this.ClientSize = new System.Drawing.Size(241, 217);
+            this.Controls.Add(this.cbColeteInfinito);
             this.Controls.Add(this.cbVidaInfinita);
             this.Controls.Add(this.cbMunicaoInfinita);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -73,5 +90,6 @@
 
         private CheckBox cbMunicaoInfinita;
         private CheckBox cbVidaInfinita;
+        private CheckBox cbColeteInfinito;
     }
 }

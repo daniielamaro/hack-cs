@@ -16,5 +16,10 @@ namespace HackCS
         {
             Program.VidaInfinita = cbVidaInfinita.Checked;
         }
+
+        private void CBVColeteInfinitaCheckedChanged(object sender, EventArgs e)
+        {
+            Program.ColeteInfinito = cbColeteInfinito.Checked;
+        }
     }
 }

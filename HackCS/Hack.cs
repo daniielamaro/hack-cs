@@ -13,19 +13,19 @@ namespace HackCS
     public class Hack
     {
         private readonly Process processoCS;
-        const int PROCESS_ALL_ACCESS = 0x1F0FFF;
 
         public Hack()
         {
             processoCS = Process.GetProcessesByName("hl")[0];
         }
 
-        public async Task VidaInfinita()
+        public Task VidaInfinita()
         {
             byte[] buffer = new byte[sizeof(float)];
             int bytesRead = 0;
             int bytesWritten = 0;
-            IntPtr processHandle = MemoryRead.OpenProcess(PROCESS_ALL_ACCESS, false, processoCS.Id);
+
+            IntPtr processHandle = MemoryRead.OpenProcess(MemoryRead.PROCESS_ALL_ACCESS, false, processoCS.Id);
 
             List<Module> modules = CollectModules(processoCS);
             Module module = modules.Where(x => x.ModuleName.Contains("hw.dll")).FirstOrDefault();
@@ -39,16 +39,41 @@ namespace HackCS
 
             buffer = BitConverter.GetBytes(999f);
             MemoryRead.WriteProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesWritten);
+
+            return Task.CompletedTask;
         }
 
-        public async Task MunicaoInfinita()
+        public Task ColeteInfinito()
         {
-            Debug.WriteLine("");
-            Debug.WriteLine("");
+            byte[] buffer = new byte[sizeof(float)];
+            int bytesRead = 0;
+            int bytesWritten = 0;
+
+            IntPtr processHandle = MemoryRead.OpenProcess(MemoryRead.PROCESS_ALL_ACCESS, false, processoCS.Id);
+
+            List<Module> modules = CollectModules(processoCS);
+            Module module = modules.Where(x => x.ModuleName.Contains("hw.dll")).FirstOrDefault();
+
+            IntPtr readAddress = IntPtr.Add(module.BaseAddress, 0x7BBD9C);
+            MemoryRead.ReadProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesRead);
+
+            long baseAddressVida = BitConverter.ToInt32(buffer, 0);
+
+            readAddress = IntPtr.Add((IntPtr)baseAddressVida, 0x23C);
+
+            buffer = BitConverter.GetBytes(999f);
+            MemoryRead.WriteProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesWritten);
+
+            return Task.CompletedTask;
+        }
+
+        public Task MunicaoInfinita()
+        {
             byte[] buffer = new byte[sizeof(int)];
             int bytesRead = 0;
             int bytesWritten = 0;
-            IntPtr processHandle = MemoryRead.OpenProcess(PROCESS_ALL_ACCESS, false, processoCS.Id);
+
+            IntPtr processHandle = MemoryRead.OpenProcess(MemoryRead.PROCESS_ALL_ACCESS, false, processoCS.Id);
 
             List<Module> modules = CollectModules(processoCS);
             Module module = modules.Where(x => x.ModuleName.Contains("hw.dll")).FirstOrDefault();
@@ -77,6 +102,8 @@ namespace HackCS
 
             buffer = BitConverter.GetBytes(30);
             MemoryRead.WriteProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesWritten);
+
+            return Task.CompletedTask;
         }
 
         public static List<Module> CollectModules(Process process)
