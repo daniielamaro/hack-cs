@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>7</ID>
+      <Description>"Munição Pointer"</Description>
+      <LastState Value="28" Activated="1" RealAddress="05C9DB5C"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>hw.dll+7BBD9C</Address>
+      <Offsets>
+        <Offset>cc</Offset>
+        <Offset>5d4</Offset>
+        <Offset>a4</Offset>
+        <Offset>5d4</Offset>
+        <Offset>7c</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9</ID>
+      <Description>"Vida"</Description>
+      <LastState Value="999" Activated="1" RealAddress="0B69BC5C"/>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>Float</VariableType>
+      <Address>hw.dll+7BBD9C</Address>
+      <Offsets>
+        <Offset>1e0</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Comments>Informações sobre esta tabela:
+</Comments>
+</CheatTable>
