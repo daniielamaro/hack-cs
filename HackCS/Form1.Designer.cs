@@ -31,6 +31,7 @@
             this.cbMunicaoInfinita = new System.Windows.Forms.CheckBox();
             this.cbVidaInfinita = new System.Windows.Forms.CheckBox();
             this.cbColeteInfinito = new System.Windows.Forms.CheckBox();
+            this.cbNoRecoil = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cbMunicaoInfinita
@@ -69,11 +70,24 @@
             this.cbColeteInfinito.UseVisualStyleBackColor = true;
             this.cbColeteInfinito.CheckedChanged += new System.EventHandler(this.CBVColeteInfinitaCheckedChanged);
             // 
+            // cbNoRecoil
+            // 
+            this.cbNoRecoil.AutoSize = true;
+            this.cbNoRecoil.Location = new System.Drawing.Point(39, 215);
+            this.cbNoRecoil.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbNoRecoil.Name = "cbNoRecoil";
+            this.cbNoRecoil.Size = new System.Drawing.Size(96, 24);
+            this.cbNoRecoil.TabIndex = 3;
+            this.cbNoRecoil.Text = "No Recoil";
+            this.cbNoRecoil.UseVisualStyleBackColor = true;
+            this.cbNoRecoil.CheckedChanged += new System.EventHandler(this.CBVNoRecoilCheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 217);
+            this.ClientSize = new System.Drawing.Size(223, 277);
+            this.Controls.Add(this.cbNoRecoil);
             this.Controls.Add(this.cbColeteInfinito);
             this.Controls.Add(this.cbVidaInfinita);
             this.Controls.Add(this.cbMunicaoInfinita);
@@ -91,5 +105,6 @@
         private CheckBox cbMunicaoInfinita;
         private CheckBox cbVidaInfinita;
         private CheckBox cbColeteInfinito;
+        private CheckBox cbNoRecoil;
     }
 }

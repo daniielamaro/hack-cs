@@ -21,5 +21,10 @@ namespace HackCS
         {
             Program.ColeteInfinito = cbColeteInfinito.Checked;
         }
+
+        private void CBVNoRecoilCheckedChanged(object sender, EventArgs e)
+        {
+            Program.NoRecoil = cbNoRecoil.Checked;
+        }
     }
 }

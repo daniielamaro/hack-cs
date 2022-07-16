@@ -67,7 +67,7 @@ namespace HackCS
             return Task.CompletedTask;
         }
 
-        public Task MunicaoInfinita()
+        public Task NoRecoil()
         {
             byte[] buffer = new byte[sizeof(int)];
             int bytesRead = 0;
@@ -90,7 +90,30 @@ namespace HackCS
             MemoryRead.ReadProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesRead);
             baseAddressMunicao = BitConverter.ToInt32(buffer, 0);
 
-            readAddress = IntPtr.Add((IntPtr)baseAddressMunicao, 0xA4);
+            readAddress = IntPtr.Add((IntPtr)baseAddressMunicao, 0x100);
+
+            buffer = BitConverter.GetBytes(0);
+            MemoryRead.WriteProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesWritten);
+
+            return Task.CompletedTask;
+        }
+
+        public Task MunicaoInfinita()
+        {
+            byte[] buffer = new byte[sizeof(int)];
+            int bytesRead = 0;
+            int bytesWritten = 0;
+
+            IntPtr processHandle = MemoryRead.OpenProcess(MemoryRead.PROCESS_ALL_ACCESS, false, processoCS.Id);
+
+            List<Module> modules = CollectModules(processoCS);
+            Module module = modules.Where(x => x.ModuleName.Contains("hw.dll")).FirstOrDefault();
+
+            IntPtr readAddress = IntPtr.Add(module.BaseAddress, 0x7BBD9C);
+            MemoryRead.ReadProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesRead);
+            long baseAddressMunicao = BitConverter.ToInt32(buffer, 0);
+
+            readAddress = IntPtr.Add((IntPtr)baseAddressMunicao, 0x7C);
             MemoryRead.ReadProcessMemory((int)processHandle, (long)readAddress, buffer, buffer.Length, ref bytesRead);
             baseAddressMunicao = BitConverter.ToInt32(buffer, 0);
 
